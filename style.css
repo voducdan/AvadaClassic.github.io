@@ -1,0 +1,117 @@
+body{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-size: 16px;
+}
+#topheader{
+    position: fixed;
+    top:0;
+    background-color:#fdfdfd;
+    width:100%;
+    height:100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+
+}
+#topheader .container{
+    width:85%;
+    height:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin:0;
+    padding:0;
+    height:100%;
+}
+.container img{
+    width:113px;
+    height:24px;
+
+}
+.container ul li {
+    padding:15px;
+}
+.container ul li>a:hover{
+    color:rgb(4, 214, 4);
+}
+.container ul li>a{
+    text-decoration: none;
+    color:#6f6262;
+    padding-top:38px;
+   
+}
+.container ul li>a.active{
+    border-top:3px solid rgb(4, 214, 4);
+}
+.container ul li a.home{
+    border-top:3px solid rgb(4, 214, 4);
+}
+.container ul .lihome{
+    position: relative;
+}
+.container ul .lihome:hover .homemenu{
+    opacity: 1;
+    display: block;
+}
+
+.container ul .lihome .homemenu{
+    position: absolute;
+    width:1161.090px;
+    height:400px;
+    top:70px;
+    left:-225px;
+    border-top:3px solid rgb(4, 214, 4);
+    background-color:rgb(234, 235, 236);
+    opacity: 0;
+    display: none;
+}
+.container ul .lihome .homemenu .homesample{
+    display: grid;
+    grid-template-columns:repeat(4,2fr);
+    grid-auto-flow: row;
+    width:100%;
+    height:100%;
+}
+.container ul .lihome .homemenu .homesample .subhomesample{
+    display:flex;
+    justify-content: start;
+    flex-direction: column;
+    width:100%;
+    padding-top:30px;
+    position: relative;
+}
+.container ul .lihome .homemenu .homesample .home2:before, .home3:before, .home4:before{
+    content:'';
+    width:1px;
+    height:100%;
+    background-color:rgb(228, 206, 206);
+    position: absolute;
+    top:0;
+    left:-10px;
+}
+.subhomesample a{
+
+    font-size:0.9rem;
+    text-decoration:  none;
+    color:#6f6262;
+    padding:10px 0 10px 30px;
+}
+.subhomesample span{
+    font-size:1.5rem;
+    padding:10px 0 10px 30px;
+    color:#6f6262;
+}
+
+
+
+
