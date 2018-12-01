@@ -3,6 +3,7 @@ body{
     padding:0;
     box-sizing:border-box;
     font-size: 16px;
+    position: relative;
 }
 #topheader{
     position: fixed;
@@ -13,8 +14,6 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    
-
 }
 #topheader .container{
     width:85%;
@@ -111,7 +110,131 @@ body{
     padding:10px 0 10px 30px;
     color:#6f6262;
 }
+#hidedheader{
+    height:0px;
+    overflow: hidden;
+    position: fixed;
+    top:0;
+    width:100%;
+    background-color:#474242;
+    z-index: 999;
+}
+.appearhidedheader{
+    animation: appearhidedheader 1s forwards;
+}
+@-webkit-keyframes appearhidedheader{
+    from{
+        height:0px;
+    }
+    to{
+        height:250px;
+    }
+}
+.disappearhidedheader{
+    animation: disappearhidedheader 1s forwards;
+}
+@-webkit-keyframes disappearhidedheader{
+    from{
+        height:250px;
+    }
+    to{
+        height:0px;
+    }
+}
+.turnbtn{
+   width:0px;
+   height:0px;
+   border-style:solid;
+   border-width:0px 40px 40px 40px;
+   border-color:transparent #474242 transparent transparent;
+   position: absolute;
+   right:0;
+}
+.turn{
+    top:0;
+}
+.turnbntmovedown{
+    animation: turnbntmovedown 1s forwards;
+}
+@-webkit-keyframes turnbntmovedown{
+    from{
+        top:0px;
+    }
+    to{
+        top:250px;
+    }
+}
+.turnbntmoveup{
+    animation: turnbntmoveup 1s forwards;
+}
+@-webkit-keyframes turnbntmoveup{
+    from{
+        top:250px;
+    }
+    to{
+        top:0px;
+    }
+}
+.turnbtn:after{
+  content:'+';
+  position: absolute;
+  font-size: 1.5rem;
+  color:white;
+  top:0;
+  left:25px;
+}
+.onbtn:after{
+    content:'-'!important;
+    position: absolute;
+    font-size: 1.5rem;
+    color:white;
+    top:0px;
+    left:25px;
+}
+#hidedheader .container{
+    margin:0 auto;
+    width:85%;
+    height:100%;
+}
+#hidedheader .container .content{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap:25px;
+    z-index: 999;;
+}
+.sidebar{
+    color:#ac9393;
+    line-height: 25px;
+    font-size:1.1rem;
+}
 
+.sidebar h5{
+    color:#f3f3f3;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 200;
+}
+.contact p{
+    margin:0;
+}
+.contact span{
+    color:rgb(219, 199, 199);
+}
+.recentwork .img{
+    display: grid;
+    grid-template-columns: repeat(4,66px);
+    grid-auto-rows: repeat(2,1fr);
+    grid-gap:10px;
+
+}
+.recentwork .img img{
+    width:66px;
+    height:66px;
+    transition: 1s;
+}
+.recentwork .img img:hover{
+    opacity: .5;
+}
 
 
 
