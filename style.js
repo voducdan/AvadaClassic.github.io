@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded',function(){
     var hidedheder = document.querySelector('#hidedheder');
     var turnbtn = document.querySelector('.turnbtn');
     var number=1;
+
     turnbtn.onclick = function(){
         number++;
         this.classList.toggle('onbtn');
@@ -32,7 +33,24 @@ document.addEventListener('DOMContentLoaded',function(){
         }
     }
 
-
-
-
+    var custombtn = document.querySelector('.custombtn');
+    var buyavada  = document.querySelector('.buy-avada');
+    var customavada = 1;
+    custombtn.onclick = function(){
+        customavada++;
+        this.classList.remove('custombtnactive');
+        buyavada.classList.remove('buyavadaactive');
+        if(customavada%2===0){
+            this.classList.add('custombtnappear');
+            buyavada.classList.add('avadaappear');
+            this.classList.remove('custombtndisappear');
+            buyavada.classList.remove('avadadisappear');
+        }
+        else{
+            this.classList.remove('custombtnappear');
+            buyavada.classList.remove('avadaappear');
+            this.classList.add('custombtndisappear');
+            buyavada.classList.add('avadadisappear');
+        }
+    };
 },false)
