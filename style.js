@@ -66,11 +66,7 @@ document.addEventListener('DOMContentLoaded',function(){
     })
     var additionalFeature = document.querySelector('.btn-view-addition-features');
     var countNumber = document.querySelector(".number-user");    
-   /* document.addEventListener("scroll",function(){
-		additionalFeaturePos = additionalFeature.getBoundingClientRect();
-		countNumberPos = countNumber.getBoundingClientRect();
-		console.log(additionalFeaturePos.top,additionalFeaturePos.top-window.innerHeight);
-	});*/
+
 	function getYOffset(el){
 		var elTop = 0;
 		while(el.offsetParent){
@@ -83,9 +79,44 @@ document.addEventListener('DOMContentLoaded',function(){
 		var rect = el.getBoundingClientRect();
 		console.log(rect.top,rect.top - window.innerHeight);
 		if (rect.top>=0 &&(rect.top-window.innerHeight<=0))
-			{ return true};
+	   	 return true;
 		return false;
 	}
-	console.log(isElementOnScreen(additionalFeature));
+	window.addEventListener('load',function(){
+		var count = 0;
+		var MAX = 400;
+		if(isElementOnScreen(additionalFeature)){
+			additionalFeature.classList.add('jump');
+		}
+		else {
+			document.addEventListener('scroll',function(){
+				if(isElementOnScreen(additionalFeature)){
+					additionalFeature.classList.add('jump');
+				}
+			});
+		}
+		if(isElementOnScreen(countNumber)){
+			var timer = setInterval(function(){
+				if(count<=MAX){
+					countNumber.innerHTML = count + ',000';
+					count++;
+				}
+				else clearInterval(timer);
+			},1);
+		}
+		else {
+			document.addEventListener('scroll',function(){
+				if(isElementOnScreen(countNumber)){
+					var timer = setInterval(function(){
+						if(count<=MAX){
+							countNumber.innerHTML = count + ',000';
+							count++;
+						}
+						else clearInterval(timer);
+					},1);
+				}
+			});
+		}
+	});
   
 },false)
