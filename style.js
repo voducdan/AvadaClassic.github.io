@@ -65,44 +65,27 @@ document.addEventListener('DOMContentLoaded',function(){
         }
     })
     var additionalFeature = document.querySelector('.btn-view-addition-features');
-    var countNumber = document.querySelector(".number-user");
-    window.addEventListener("load", function(){
-    	var count = 0;
-    	var countNumberPos = countNumber.getBoundingClientRect();
-    	console.log(countNumberPos.top)
-    	var additionalFeaturePos = additionalFeature.getBoundingClientRect();
-    	if(additionalFeaturePos.top>=68&&additionalFeaturePos.top<=606){
-    	additionalFeature.classList.add('jump');
-    	}
-    	else {
-    		document.addEventListener("scroll",function(){
-    			additionalFeaturePos = additionalFeature.getBoundingClientRect()
-    			if(additionalFeaturePos.top>=68&&additionalFeaturePos.top<=606){
-    				additionalFeature.classList.add('jump');
-    			}
-    		});
-    	}
-    	if(countNumberPos.top<=620&&countNumberPos.top>=76){
-    		var timer = setInterval(function(){
-	    	if(count>400){ clearInterval(timer);}
-	    	else{
-	    		countNumber.innerHTML = count + ",000";
-	    		count++;
-	    	}},1)
-	    }
-    	else{
-    		document.addEventListener("scroll",function(){
-    			countNumberPos = countNumber.getBoundingClientRect()
-    			if(countNumberPos.top<=620&&countNumberPos.top>=76){
-					var timer = setInterval(function(){
-			    	if(count>400){ clearInterval(timer);}
-			    	else{
-			    		countNumber.innerHTML = count + ",000";
-			    		count++;
-			    	}},1)
-    			}
-    		});
-    	}
-    });   
-   
+    var countNumber = document.querySelector(".number-user");    
+   /* document.addEventListener("scroll",function(){
+		additionalFeaturePos = additionalFeature.getBoundingClientRect();
+		countNumberPos = countNumber.getBoundingClientRect();
+		console.log(additionalFeaturePos.top,additionalFeaturePos.top-window.innerHeight);
+	});*/
+	function getYOffset(el){
+		var elTop = 0;
+		while(el.offsetParent){
+	 		elTop += el.offsetTop;
+	 		el = el.offsetParent;
+	 	}
+	 	return elTop;
+	}
+	function isElementOnScreen(el){
+		var rect = el.getBoundingClientRect();
+		console.log(rect.top,rect.top - window.innerHeight);
+		if (rect.top>=0 &&(rect.top-window.innerHeight<=0))
+			{ return true};
+		return false;
+	}
+	console.log(isElementOnScreen(additionalFeature));
+  
 },false)
